@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>HOLA</h1>
+      <h1>HELLO</h1>
       <my-widget></my-widget>
       <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
     </div>

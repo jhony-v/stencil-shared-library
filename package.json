@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:library": "pnpm --parallel --filter design build"
+    "dev": "pnpm --filter dashboard dev",
+    "build:library": "pnpm --filter design --filter engine build"
   },
   "workspaces": {
     "packages": [
@@ -14,5 +15,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "engine": "workspace:^1.0.0"
+  }
 }
