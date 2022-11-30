@@ -1,3 +1,9 @@
 {
-  "extends": "tsconfig/tsconfig.json"
+  "extends": "tsconfig/tsconfig.json",
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -2,6 +2,9 @@ lockfileVersion: 5.4
 
 importers:
 
+  .:
+    specifiers: {}
+
   apps/analytic:
     specifiers:
       '@types/react': ^18.0.24
@@ -62,6 +65,12 @@ importers:
       jest: 27.5.1
       jest-cli: 27.5.1
       puppeteer: 10.4.0
+
+  packages/market:
+    specifiers: {}
+
+  packages/tsconfig:
+    specifiers: {}
 
 packages:
 

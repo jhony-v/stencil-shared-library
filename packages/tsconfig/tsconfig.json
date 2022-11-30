@@ -16,10 +16,4 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
 }
