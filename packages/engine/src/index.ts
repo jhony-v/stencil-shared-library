@@ -1,3 +1,4 @@
+export { default as useWebComponentRef } from "./useWebComponentRef"
 import ReactDOM from "react-dom/client";
 
 export class EngineApplication {

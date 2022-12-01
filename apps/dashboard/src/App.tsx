@@ -1,25 +1,31 @@
 //@ts-nocheck
-import "./App.css";
+import { useWebComponentRef } from 'engine';
+import './App.css';
+
+const WebComponent = ({ username }) => {
+  const [widget] = useWebComponentRef({
+    on: {
+      changeUsername(value) {
+        console.log(`${username} prints ${value}`);
+      },
+    },
+  });
+
+  return (
+    <design-widget username={username} ref={widget}>
+      <i>HELLO {username}</i>
+      <market-component first="Stencil" last="market component"/>
+      <design-my-component first="Stencil" last="design component"/>
+    </design-widget>
+  );
+};
 
 function App() {
 
-  const onChangeUsername = ev => {
-    alert(ev)
-  }
-
   return (
     <div className="App">
-      <design-widget username="username from react" changeUsername={onChangeUsername}>
-        <h1>HELLO</h1>
-        <market-component 
-        first="Stencil" 
-        last="'Don't call me a framework' JS">
-        </market-component>
-        <design-my-component 
-        first="Stencil" 
-        last="'Don't call me a framework' JS">
-        </design-my-component>
-      </design-widget>
+      <WebComponent username="mark" />
+      <WebComponent username="jhony" />
     </div>
   );
 }
