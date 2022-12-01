@@ -2,7 +2,7 @@ import { Component, Prop, h } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 @Component({
-  tag: 'my-component',
+  tag: 'market-component',
   styleUrl: 'my-component.css',
   shadow: true,
 })
@@ -27,6 +27,6 @@ export class MyComponent {
   }
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    return <div>Hello, World! I'm {this.getText()} from market</div>;
   }
 }

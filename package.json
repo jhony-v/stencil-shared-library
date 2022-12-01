@@ -2,10 +2,10 @@
   "name": "stencil-shared-library",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter dashboard dev",
-    "build:library": "pnpm --filter design --filter engine build"
+    "dev:analytic": "pnpm --filter analytic dev",
+    "dev:dashboard": "pnpm --filter dashboard dev",
+    "build:library": "pnpm --filter design --filter market --filter engine build"
   },
   "workspaces": {
     "packages": [
@@ -16,7 +16,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "engine": "workspace:^1.0.0"
+  "dependencies":{
+    "@stencil/core": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "jest": "^27.4.5",
+    "jest-cli": "^27.4.5",
+    "puppeteer": "^10.0.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "vite-plugin-dts": "^1.7.1",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
   }
 }

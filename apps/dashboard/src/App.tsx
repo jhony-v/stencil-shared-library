@@ -3,11 +3,23 @@ import "./App.css";
 
 function App() {
 
+  const onChangeUsername = ev => {
+    alert(ev)
+  }
+
   return (
     <div className="App">
-      <h1>HELLO</h1>
-      <my-widget></my-widget>
-      <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+      <design-widget username="username from react" changeUsername={onChangeUsername}>
+        <h1>HELLO</h1>
+        <market-component 
+        first="Stencil" 
+        last="'Don't call me a framework' JS">
+        </market-component>
+        <design-my-component 
+        first="Stencil" 
+        last="'Don't call me a framework' JS">
+        </design-my-component>
+      </design-widget>
     </div>
   );
 }

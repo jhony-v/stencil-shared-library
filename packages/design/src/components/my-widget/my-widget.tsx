@@ -1,15 +1,26 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop, Listen, EventEmitter, Event } from '@stencil/core';
 
 @Component({
-  tag: 'my-widget',
+  tag: 'design-widget',
   shadow: true,
 })
 export class MyWidget {
+  timer: number;
+
+  @Event({ eventName: "changeUsername" }) changeUsername: EventEmitter<string>
+  @Prop({ mutable: true }) username: string = ""
+
+  @Listen("click") 
+  updateUsername() {
+    this.username = "" + Math.random()
+    this.changeUsername.emit(this.username)
+  }
 
   render() {
+
     return (
       <Host>
-        <div>mi widget de ejemplo</div>
+        <h1>{this.username}</h1>
         <slot></slot>
       </Host>
     );

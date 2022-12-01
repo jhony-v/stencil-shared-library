@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface DesignMyComponent {
         /**
           * The first name
          */
@@ -20,29 +20,34 @@ export namespace Components {
          */
         "middle": string;
     }
-    interface MyWidget {
+    interface DesignWidget {
+        "username": string;
     }
 }
+export interface DesignWidgetCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDesignWidgetElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDesignMyComponentElement extends Components.DesignMyComponent, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDesignMyComponentElement: {
+        prototype: HTMLDesignMyComponentElement;
+        new (): HTMLDesignMyComponentElement;
     };
-    interface HTMLMyWidgetElement extends Components.MyWidget, HTMLStencilElement {
+    interface HTMLDesignWidgetElement extends Components.DesignWidget, HTMLStencilElement {
     }
-    var HTMLMyWidgetElement: {
-        prototype: HTMLMyWidgetElement;
-        new (): HTMLMyWidgetElement;
+    var HTMLDesignWidgetElement: {
+        prototype: HTMLDesignWidgetElement;
+        new (): HTMLDesignWidgetElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
-        "my-widget": HTMLMyWidgetElement;
+        "design-my-component": HTMLDesignMyComponentElement;
+        "design-widget": HTMLDesignWidgetElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface DesignMyComponent {
         /**
           * The first name
          */
@@ -56,19 +61,21 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface MyWidget {
+    interface DesignWidget {
+        "onChangeUsername"?: (event: DesignWidgetCustomEvent<string>) => void;
+        "username"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
-        "my-widget": MyWidget;
+        "design-my-component": DesignMyComponent;
+        "design-widget": DesignWidget;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "my-widget": LocalJSX.MyWidget & JSXBase.HTMLAttributes<HTMLMyWidgetElement>;
+            "design-my-component": LocalJSX.DesignMyComponent & JSXBase.HTMLAttributes<HTMLDesignMyComponentElement>;
+            "design-widget": LocalJSX.DesignWidget & JSXBase.HTMLAttributes<HTMLDesignWidgetElement>;
         }
     }
 }
